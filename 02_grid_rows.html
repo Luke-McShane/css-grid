@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid Columns</title>
+  <style>
+
+    /* We can set the amount of rows also, and how much space each row takes up.
+      We can have 'implicit' rows, which means that, if there are rows or columns that are not defined in the grid templating definitions, then the definitions will be implicit
+      
+      As you will see below, we can set grid-auto-rows to set the sizings for these implicit rows and columns. Basically, if we have 3 defined rows, but then we have 4 items, then the 4th row will be implicitly defined, or will be defined by the grid-auto-row property */
+    .grid {
+      display: grid;
+
+      /* With this, you will see that the first three items have their sizes defined, yet the items below are implicitly defined */
+      grid-template-rows: 1fr 2fr 3fr;
+
+      /* We will change these implicit definitions with the below statement. Rembember, this means that for all items not explicitly defined within a templte, apply this value(s) to them */
+      grid-auto-rows: 1.5fr;
+
+      /* We can also set the columns alongside the rows to create a neat layout */
+      grid-template-columns: 1fr 2fr;
+    }
+
+    .item {
+      background: #f4f4f4;
+      padding: 2rem;
+      font-size: 1.3rem;
+      border: 1px solid #000;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <div class="item">Item 1</div>
+    <div class="item">Item 2</div>
+    <div class="item">Item 3</div>
+    <div class="item">Item 4</div>
+    <div class="item">Item 5</div>
+    <div class="item">Item 6</div>
+    <div class="item">Item 7</div>
+    <div class="item">Item 8</div>
+    <div class="item">Item 9</div>
+  </div>
+</body>
+</html>

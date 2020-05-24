@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid Span</title>
+  <style>
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Here we are spanning the first element of the grid. The first way we do this is by using the start and end properties for the column and row. Note that we are using the lines for the start and end points, not the amount of elements; this means that, when starting at one and finishing at 4, we are spanning over 3 elements. Also note that we can shift items around the grid using these properties. So, for example, if an item starts at column 5 and ends at column 6, we can move it to start at, say, column 2 and end at column 4. */
+    .item:first-child {
+      /* This is the longer version of setting a size for an item in a grid */
+      /* grid-column-start: 1;
+      grid-column-end: 4;
+      grid-row-start: 1;
+      grid-row-end: 3; */
+
+      /* This is shorthand. We are not saying that it should go from, for example, from column one to column 3, but rather that, from this starting position, span 3 columns. This applies the same for the row. */
+      grid-column: 1 / span 3;
+      grid-row: 1 / span 2;
+    }
+
+    /* So here you can see that we are not asking the item rows to go from row 3 to row 3, but rather to go from row 3 and span 3 more rows over */
+    .item:nth-child(5) {
+      grid-column: 1 / span 3;
+      grid-row: 3 / span 3;
+    }
+
+    .item {
+      background: #f4f4f4;
+      padding: 3rem;
+      font-size: 1.3rem;
+      border: 1px solid #000;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <div class="item">Item 1</div>
+    <div class="item">Item 2</div>
+    <div class="item">Item 3</div>
+    <div class="item">Item 4</div>
+    <div class="item">Item 5</div>
+    <div class="item">Item 6</div>
+    <div class="item">Item 7</div>
+    <div class="item">Item 8</div>
+    <div class="item">Item 9</div>
+    <div class="item">Item 10</div>
+    <div class="item">Item 11</div>
+    <div class="item">Item 12</div>
+    <div class="item">Item 13</div>
+    <div class="item">Item 14</div>
+    <div class="item">Item 15</div>
+  </div>
+</body>
+</html>

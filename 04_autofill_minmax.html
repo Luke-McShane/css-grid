@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autofill and Minmax</title>
+</head>
+<style>
+
+  /* This is how auto-fit and minmax is used
+    In the repeat method, the first argument specifies the amount of columns or rows, and the second argument specified the width of each
+    element. Here, the amount of columns is dependent on the width of each item, which is dependent on on the size of the container.
+    If we have a container of 1200px and 4 items, with minmax(250px, 1fr), then the width of each item will be 300px. If, however, the container is
+    resized to 750px, then the first row will contain 3 items, each of 250px, and the 4th item will be pushed to the next row. 
+    
+    The other option is to use auto-fill. With auto-fit, you will notice that, when the container width can accomodate another item but there are no
+    more items to fit, then the current items will expand to fit the width.
+    
+    With auto-fill, however, the width is filled with invisible containers that have defiend widths, so it appears that extra width is not used. With
+    auto-fit, these extra, invisible containers are indeed added, but are collapsed, and so appear not to be on the screen. This difference is easily
+    shown using the Firefox browser
+    
+    You will only be able to see the difference between auto-fit and auto-fill when there is spare/extra space in the container */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); */
+  }
+
+  .item {
+      background: #f4f4f4;
+      padding: 3rem;
+      font-size: 1.3rem;
+      border: 1px solid #000;
+      text-align: center;
+      font-weight: bold;
+    }
+</style>
+<body>
+  <div class="grid">
+    <div class="item">Item 1</div>
+    <div class="item">Item 2</div>
+    <div class="item">Item 3</div>
+    <div class="item">Item 4</div>
+    <div class="item">Item 5</div>
+    <div class="item">Item 6</div>
+    <div class="item">Item 7</div>
+    <div class="item">Item 8</div>
+    <div class="item">Item 9</div>
+    <div class="item">Item 10</div>
+    <div class="item">Item 11</div>
+    <div class="item">Item 12</div>
+    <div class="item">Item 13</div>
+    <div class="item">Item 14</div>
+    <div class="item">Item 15</div>
+  </div>
+</body>
+</html>
