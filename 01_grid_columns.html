@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid Columns</title>
+  <style>
+      /* Similar to flex, we set the parent container to a certain display format and the child elements will be part of this display format
+      
+      So here we set the display to grid, and we use the grid-template-columns property to define how many columns we want and how wide each column should be. 
+      
+      If we want 3 columns, for example, we put 3 values as the value for this property. We can also set 'auto' to state that we want the remaining space of the container to be taken up by that corresponding column. If we want each item to take up the same amount of space and use all container width, we can use 'grid-template-columns: auto auto auto;'.
+      
+      We also have the fraction (fr) unit, which is similar to the flex values we use when setting flex grow and shrink. So, if we went each of the three items to take up the same amount of space, spanning the entire container, we would write 'grid-template-columns: 1fr 1fr 1fr;'. If we wanted the middle element to take up double the space of the other two elements, we would write 'grid-template-columns: 1fr 2fr 1fr;' 
+      
+      Finally, elements inside the grid will naturally wrap if we have not set a fixed amount of rows. If we have set columns but there are 4 elements, for example, the fourth element will wrap onto the second row.*/
+    .grid {
+      display: grid;
+
+      /* Each column takes up exactly 200px, meaning, unless the container is <= 600px wide, there will be whitespace in the container's width */
+      /* grid-template-columns: 200px 200px 200px; */
+
+      /* Setting the middle element to take up all remaining container width */
+      /* grid-template-columns: 150px auto 150px; */
+
+      /* Setting each item to take up the entire container, with equal width */
+      /*  Method 1 */
+      /* grid-template-columns: auto auto auto */
+
+      /* Method 2 */
+      /* grid-template-columns: repeat(3, auto); */
+
+      /* Method 3 */
+      /* grid-template-columns: 1fr 1fr 1fr; */
+
+      /* Method 2 */
+      grid-template-columns: repeat(3, 1fr);
+
+      /* The 'gap' property defines the row-gap and column-gap between all elements contained within the grid. We can also set the row and column gaps separately using the 'row-gap' and 'column-gap' properties */
+      /* The below is the same as:
+          row-gap: 1rem;
+          column-gap: 1rem; */
+      gap: 1rem;
+
+    }
+
+    .item {
+      background: #f4f4f4;
+      padding: 2rem;
+      font-size: 1.3rem;
+      border: 1px solid #000;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /* See how easily we can create a basic website layout with the grid layout? */
+    main {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <div class="item">Item 1</div>
+    <div class="item">Item 2</div>
+    <div class="item">Item 3</div>
+    <div class="item">Item 4</div>
+    <div class="item">Item 5</div>
+    <div class="item">Item 6</div>
+    <div class="item">Item 7</div>
+    <div class="item">Item 8</div>
+    <div class="item">Item 9</div>
+  </div>
+
+  <main>
+    <section>
+      <h3>This is some Website Content</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum deserunt odio optio, perspiciatis sapiente explicabo enim, blanditiis adipisci harum maxime aut alias maiores aperiam impedit, officiis qui. A, soluta animi.</p>
+    </section>
+    <aside>
+      <h4>This is some other website content</h4>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, eaque. Blanditiis fuga enim consectetur quaerat!</p>
+    </aside>
+  </main>
+</body>
+</html>
